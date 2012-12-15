@@ -2,7 +2,7 @@ clbq aka ConcurrentLinkedBlockingQueue
 ======================================
 
 ConcurrentLinkedBlockingQueue is an experimental BlockingQueue implementation built on
-top of ConcurrentLinkedQueue for scenario that require low-latency handoff, at the cost
+top of ConcurrentLinkedQueue for scenarios that require low-latency handoff, at the cost
 of increased overhead when consumers are idle.
 
 I am not the original author of this code; I merely saved it from the net some time ago
@@ -18,7 +18,7 @@ tries to do some rule-of-thumb thread pool/producer/consumer auto-sizing.
 * Alternatively pass "numConsumers=x" and "numProducers=y" properties to see the
 performance tradeoff. With more producers than (one or two) consumers the performance
 should always be better than LinkedBlockingQueue; this takes a turn for the worse as
-more consumers are added
+more consumers are added.
 
 IDEAS
 =====
