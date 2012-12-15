@@ -12,6 +12,9 @@ and merged the unbounded & bounded implementation into a single class.
 USAGE
 =====
 
+* Call ConcurrentLinkedBlockingQueue<E>() with or without capacity, just like LBQ.
+A capacity obviously implies bounded size.
+
 * The main benchmark/test driver is "QueueTest", which in turn will run separate drivers
 for different individual queue implementations. Simply run it without parameters and it
 tries to do some rule-of-thumb thread pool/producer/consumer auto-sizing.
@@ -31,14 +34,14 @@ certain scenarios. The impact of "user-level" (aka nonnative) blocking/signaling
 still be reduced further, so if anybody wants to explore these ideas further, please
 feel free:
 
-* Consumer state transition (active -> potentially-blocking) currently implies an
-- unfortunately necessary - second hit into the internal CLQ, which (as far as I can
-tell) is responsible for the performance impact with multiple consumers, probably due to
-excessive CAS. I'd be curious to hear about alternative approaches.
+* Consumer state transition (active -> potentially-blocking) currently implies a necessary
+second hit into the internal CLQ, which (as far as I can tell) is responsible for the
+performance impact with multiple consumers, probably due to excessive CAS.
+I'd be curious to hear about alternative approaches.
 
 * I'm looking for reduced allocation of ThreadMarkers. One possible way might be to use
 ThreadLocals and merely flip a signal, but I have not yet thought that through
-(I generally dislike ThreadLocals unless I can als control any interacting threads).
+(I generally dislike ThreadLocals unless I can also control any interacting threads).
 
 * Instead of crapping on the console write to CSV so that the results can be more easily
 graphed/compared.
