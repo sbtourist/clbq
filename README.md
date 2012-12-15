@@ -3,8 +3,8 @@ clbq aka ConcurrentLinkedBlockingQueue
 
 ConcurrentLinkedBlockingQueue is an experimental BlockingQueue implementation built on
 top of ConcurrentLinkedQueue for scenarios that require low-latency handoff, at the cost
-of increased overhead when consumers transition between blocked (waiting) and active
-state. This overhead may or not be amortized by the lower latency.
+of increased overhead when consumers transition between active and blocked (waiting) states.
+This overhead may or may not be amortized by the lower overall latency.
 
 I am not the original author of this code; I merely saved it from the net some time ago
 and merged the unbounded & bounded implementation into a single class.
@@ -41,6 +41,6 @@ ThreadLocals and merely flip a signal, but I have not yet thought that through
 (I generally dislike ThreadLocals unless I can als control any interacting threads).
 
 * Instead of crapping on the console write to CSV so that the results can be more easily
-graphed/compared
+graphed/compared.
 
 Patches & further thoughts welcome!
