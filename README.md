@@ -16,8 +16,8 @@ USAGE
 for different individual queue implementations. Simply run it without parameters and it
 tries to do some rule-of-thumb thread pool/producer/consumer auto-sizing.
 
-* Alternatively pass "numConsumers=x" and "numProducers=y" properties to see the
-performance tradeoff. With more producers than (one or two) consumers the performance
+* Alternatively pass "numConsumer=x", "numProducer=y" and optionally "capacity=z" properties
+to see the performance tradeoffs. With more producers than (one or two) consumers the performance
 should always be better than LinkedBlockingQueue; this takes a turn for the worse as
 more consumers are added.
 
